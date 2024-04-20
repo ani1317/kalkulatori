@@ -1,2 +1,80 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# calculator.py
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Error: Division by zero!"
+    else:
+        return x / y
+
+def modulo(x, y):
+    return x % y
+
+def power(x, y):
+    return x ** y
+
+def validate_number(num):
+    try:
+        float(num)
+        return True
+    except ValueError:
+        return False
+
+def main():
+    print("Welcome to the Calculator!")
+    num1 = input("Enter the first number: ")
+    if not validate_number(num1):
+        print("Invalid input for the first number.")
+        return
+    num2 = input("Enter the second number: ")
+    if not validate_number(num2):
+        print("Invalid input for the second number.")
+        return
+    
+    num1 = float(num1)
+    num2 = float(num2)
+    
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("5. Modulo")
+    print("6. Power")
+
+    choice = input("Enter choice (1/2/3/4/5/6): ")
+
+    if choice in ('1', '2', '3', '4', '5', '6'):
+        if choice == '1':
+            print("Result:", add(num1, num2))
+        elif choice == '2':
+            print("Result:", subtract(num1, num2))
+        elif choice == '3':
+            print("Result:", multiply(num1, num2))
+        elif choice == '4':
+            print("Result:", divide(num1, num2))
+        elif choice == '5':
+            print("Result:", modulo(num1, num2))
+        elif choice == '6':
+            print("Result:", power(num1, num2))
+    else:
+        print("Invalid input")
+
+if __name__ == "__main__":
+    main()
+cd path/to/your/calculator/
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin <https://github.com/ani1317/calculator.git>
+git push -u origin master
